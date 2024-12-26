@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All users</title>
+</head>
+<style>
+    table,
+    td,
+    th {
+        border: 1px solid lightgreen;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        background-color: black;
+        color: lightgreen;
+    }
+
+    .sum {
+        padding: 2px 8px;
+        background-color: green;
+    }
+
+    button {
+        color: white;
+        background-color: black;
+    }
+</style>
+
+<body>
+
+    <table>
+        <tr>
+            <th>id</th>
+            <th>email</th>
+            <th>username</th>
+        </tr>
+        <% for(user of users){ %>
+            <tr>
+                <td>
+                    <%= user.id %>
+                </td>
+                <td>
+                    <%= user.email %>
+                </td>
+                <td>
+                    <%= user.username %>
+                </td>
+                <td class="sum">
+                    <form method="get" action="/user/<%= user.id %>/edit ">
+                        <button>Edit User</button>
+                    </form>
+                </td>
+                <td class="sum">
+                    <form method="get" action="/user/<%= user.id %>/delete ">
+                        <button>delete User</button>
+                    </form>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+</body>
+
+</html>
